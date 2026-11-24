@@ -13,3 +13,5 @@ Its color palette and UI styling draw inspiration from:
 <img width="1920" height="1033" alt="2026-11-24 12_40_43-" src="https://github.com/user-attachments/assets/76ca589b-4bee-4877-9afd-81b832631b87" />
 
 ## It was made and tested inside Vencord QuickCSS, you may need to adapt it for other uses.
+
+<a href="https://www.buymeacoffee.com/shaggoth"><img width="49" height="38" alt="Buy me a beer" src="https://github.com/user-attachments/assets/39d1cf81-1fb4-4543-930d-60e6e78bede8"/></a>
