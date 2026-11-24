@@ -1,0 +1,443 @@
+
+/* ==================================================
+   NORMANDY SR2
+   Discord / Vencord / Vesktop
+   Version 1.1
+   ================================================== */
+
+
+/* ---------- EXTERNAL RESOURCES ---------- */
+
+@import url('https://abbie.github.io/discord-css/import.css');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700');
+
+
+/* ==================================================
+   01. TYPOGRAPHY
+   ================================================== */
+
+:root {
+    --font-primary: "Fira Sans", sans-serif;
+    --font-display: "Fira Sans", sans-serif;
+}
+
+body {
+    font-family: "Fira Sans", sans-serif !important;
+    font-weight: 400;
+}
+
+
+/* ==================================================
+   02. NORMANDY COLOR PALETTE
+   ================================================== */
+
+:root,
+.theme-dark {
+    /* Legacy Discord backgrounds */
+    --background-primary: #18232f;
+    --background-secondary: #111c28;
+    --background-secondary-alt: #14202c;
+    --background-tertiary: #0d1721;
+    --background-floating: #1c2b39;
+
+    /* Modern Discord surfaces */
+    --background-base-lowest: #0e1822;
+    --background-base-lower: #111c28;
+    --background-base-low: #17232f;
+
+    --background-surface-low: #14202c;
+    --background-surface-high: #1b2a38;
+    --background-surface-higher: #203242;
+    --background-surface-highest: #26394a;
+
+    /* Interactive surfaces */
+    --background-modifier-hover: rgba(91, 181, 222, 0.09);
+    --background-modifier-active: rgba(91, 181, 222, 0.15);
+    --background-modifier-selected: rgba(69, 159, 204, 0.18);
+    --background-modifier-accent: rgba(110, 160, 190, 0.12);
+
+    /* Normandy blue */
+    --brand-360: #80c9ec;
+    --brand-400: #69bce3;
+    --brand-500: #399dcc;
+    --brand-560: #2984b0;
+    --brand-600: #216d94;
+    --brand-experiment: #399dcc;
+
+    /* Text */
+    --text-link: #75c7ed;
+    --text-positive: #63bd91;
+    --text-warning: #e6b75f;
+    --text-danger: #df6269;
+
+    /* Borders */
+    --border-subtle: rgba(105, 159, 190, 0.12);
+    --border-normal: rgba(105, 159, 190, 0.19);
+
+    /* Input */
+    --channeltextarea-background: #111d29;
+
+    /* Scrollbars */
+    --scrollbar-thin-thumb: #385166;
+    --scrollbar-auto-thumb: #385166;
+    --scrollbar-auto-track: #111c28;
+}
+
+
+/* ==================================================
+   03. ABBIE COMPACT SETTINGS
+   ================================================== */
+
+:root {
+    /* Layout */
+    --\\--compact-title-bar: true;
+    --\\--compact-input-box: true;
+    --\\--compact-context-menu: true;
+    --\\--compact-user-area: true;
+    --\\--compact-channel-categories: true;
+    --\\--compact-server-list: true;
+
+    /* Profile cosmetics */
+    --\\--hide-nameplates: true;
+    --\\--hide-guild-tags: true;
+    --\\--hide-profile-effects: true;
+    --\\--hide-profile-frames: true;
+    --\\--hide-avatar-decorations: true;
+    --\\--hide-gradient-glow-usernames: true;
+
+    /* Activity and server clutter */
+    --\\--hide-server-boost-goal: true;
+    --\\--hide-server-activity: true;
+    --\\--hide-user-activity: true;
+    --\\--hide-active-now: true;
+
+    /* Menus */
+    --\\--hide-context-menu-quick-reactions: true;
+    --\\--hide-hover-quick-reactions: false;
+
+    /* Composer buttons */
+    --\\--hide-image-edit-button: true;
+    --\\--hide-gif-button: false;
+    --\\--hide-sticker-button: false;
+    --\\--hide-emoji-button: false;
+    --\\--hide-apps-button: true;
+    --\\--hide-gift-button: true;
+
+    /* Navigation buttons */
+    --\\--hide-help-button: true;
+    --\\--hide-inbox-button: false;
+    --\\--hide-shop-button: true;
+    --\\--hide-nitro-button: true;
+    --\\--hide-quest-button: true;
+
+    /* Other clutter */
+    --\\--hide-nitro-upsells: true;
+    --\\--hide-vencord-desktop-platform-indicator: true;
+    --\\--hide-cluttery-badges: true;
+
+    /* Behavior */
+    --\\--darker-scrollbar: true;
+    --\\--darker-hovered-message: true;
+    --\\--prevent-sidebar-resizing: false;
+    --\\--fix-minor-icon-misalignments: true;
+}
+
+
+/* ==================================================
+   04. PREMIUM PROFILE COSMETICS
+   ================================================== */
+
+/* Avatar decorations */
+[class*="avatarDecoration"] {
+    display: none !important;
+}
+
+/* Profile effects */
+[class*="profileEffects"] {
+    display: none !important;
+}
+
+/* Profile frames */
+[class*="profileFrameContainer"] {
+    display: none !important;
+}
+
+/* Nameplates */
+div[class*="childContainer"][class*="nameplated"] {
+    padding-right: inherit !important;
+}
+
+div[class*="childContainer"][class*="nameplated"]
+> div[class*="container"][style] {
+    display: none !important;
+}
+
+/* Remove username gradient effects */
+[class*="ColorGradient"] {
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    filter: none !important;
+}
+
+
+/* ==================================================
+   05. STANDARD USERNAME TYPOGRAPHY
+   ================================================== */
+
+/* Keep Fira Sans, preserve role colors */
+[class*="username"],
+[class*="displayName"],
+[class*="nameTag"] {
+    font-family: "Fira Sans", sans-serif !important;
+    font-weight: 500;
+}
+
+
+/* ==================================================
+   06. NORMANDY SURFACES
+   ================================================== */
+
+/* Main application background */
+#app-mount {
+    background-color: #0e1822;
+}
+
+/* Server and channel sidebars */
+[class*="sidebar_"],
+[class*="sidebarList_"] {
+    background-color: #111c28;
+}
+
+/* Chat area */
+[class*="chat_"] {
+    background-color: #18232f;
+}
+
+/* Member list */
+[class*="membersWrap_"] {
+    background-color: #111c28;
+}
+
+/* Message input */
+[class*="channelTextArea_"] {
+    background-color: #111d29;
+}
+
+/* Selected channel */
+[class*="modeSelected_"] [class*="link_"] {
+    background-color: rgba(66, 159, 205, 0.19) !important;
+}
+
+/* Hovered channel */
+[class*="modeUnreadImportant_"] [class*="link_"]:hover,
+[class*="modeConnected_"] [class*="link_"]:hover {
+    background-color: rgba(91, 181, 222, 0.09);
+}
+
+
+/* ==================================================
+   07. INTERACTIVE ELEMENTS
+   ================================================== */
+
+/* Buttons and clickable controls */
+button:hover {
+    transition: background-color 0.15s ease;
+}
+
+/* Links */
+a {
+    text-decoration-color: rgba(117, 199, 237, 0.35);
+}
+
+/* Selected controls */
+[aria-checked="true"],
+[aria-selected="true"] {
+    accent-color: #399dcc;
+}
+
+/* Focus indicators */
+:focus-visible {
+    outline-color: #69bce3 !important;
+}
+
+
+/* ==================================================
+   08. SCROLLBARS
+   ================================================== */
+
+body {
+    --scrollbar-auto-thumb: #385166;
+    --scrollbar-auto-track: #111c28;
+}
+
+
+/* ==================================================
+   END — NORMANDY SR2
+   ================================================== */
+/* Normandy SR2 — message input */
+[class*="channelTextArea"] {
+    background: #111d29 !important;
+}
+
+[class*="channelTextArea"] [class*="scrollableContainer"] {
+    background: #111d29 !important;
+}
+
+[class*="channelTextArea"] [class*="inner"] {
+    background: transparent !important;
+}
+/* Normandy SR2 — Game Collection */
+.card_M2WrKU {
+    background-color: #14202c !important;
+}
+
+/* Normandy SR2 — Profile Board widgets */
+.card_2y0Mhw {
+    background-color: #14202c !important;
+}
+
+.card_2y0Mhw .comment_2y0Mhw {
+    background-color: transparent !important;
+}
+
+/* Normandy SR2 — all profile widgets */
+.container_FNEkcu {
+    background-color: #14202c !important;
+}
+/* Normandy SR2 — Activity game cards */
+.card_Bu4Al8 {
+    background-color: #14202c !important;
+}
+/* Normandy SR2 — Wishlist suggestions */
+.recommendationsContainerWithWishlist_AI9GeR {
+    background-color: #14202c !important;
+}
+
+.recommendationsContainerWithWishlist_AI9GeR .card_PJ8wak {
+    background-color: #182b3a !important;
+}
+/* Normandy SR2 — Profile editor left panel */
+.header_cuaHiV,
+.scroller_UqVm6V {
+    background-color: #111d29 !important;
+}
+
+.content_UqVm6V {
+    background-color: transparent !important;
+}
+/* Normandy SR2 — Nitro preview section */
+.premiumGradientBackground_kbgxEC {
+    background: #14202c !important;
+}
+/* Normandy SR2 — DM profile panel */
+.scrollerFade_S_xUx6 {
+    background-color: #111d29 !important;
+}
+
+.scrollerFade_S_xUx6 .body_A7qlid,
+.scrollerFade_S_xUx6 .cards_A7qlid,
+.scrollerFade_S_xUx6 .section_NcvRRg {
+    background-color: transparent !important;
+}
+/* Normandy SR2 — DM profile footer */
+.redesignFooter_YBm90d {
+    background-color: #111d29 !important;
+}
+/* Normandy SR2 — DM wishlist */
+.container_78NJ3W {
+    background-color: #14202c !important;
+}
+
+.header_78NJ3W,
+.cardsContainer_78NJ3W {
+    background-color: transparent !important;
+}
+/* Normandy SR2 — private profile notice */
+.banner_98tF3N {
+    background-color: #14202c !important;
+}
+/* Normandy SR2 — blocked user profile */
+.container_7ne32W {
+    background-color: #111d29 !important;
+}
+
+.body_7ne32W {
+    background-color: transparent !important;
+}
+/* Normandy SR2 — compact profile */
+.body_nitlyF {
+    background-color: #111d29 !important;
+}
+
+.body_nitlyF .section_NcvRRg,
+.body_nitlyF .container_M2WrKU,
+.body_nitlyF .menuOverlay_nitlyF {
+    background-color: transparent !important;
+}
+/* Normandy SR2 — Vencord quick actions */
+.vc-settings-quickActions-card {
+    background-color: #111d29 !important;
+    border-color: #263b4c !important;
+}
+
+.vc-settings-quickActions-pill {
+    background-color: #182b3a !important;
+    border-color: #263b4c !important;
+    color: #c5d5df !important;
+}
+
+.vc-settings-quickActions-pill:hover {
+    background-color: #20394b !important;
+    color: #55c8e8 !important;
+}
+/* Normandy SR2 — Vencord plugin management */
+.vc-plugins-info-card,
+.vc-plugin-ui-elements-button {
+    background-color: #111d29 !important;
+    border-color: #263b4c !important;
+}
+
+/* Individual plugin cards */
+.vc-addon-card {
+    background-color: #14202c !important;
+    border-color: #263b4c !important;
+}
+
+/* Plugin settings button */
+.vc-plugins-info-button {
+    background-color: #182b3a !important;
+    color: #c5d5df !important;
+}
+
+.vc-plugins-info-button:hover {
+    background-color: #20394b !important;
+    color: #55c8e8 !important;
+}
+/* Normandy SR2 — Vencord themes */
+.vc-card-normal.vc-card-defaultPadding {
+    background-color: #111d29 !important;
+    border-color: #263b4c !important;
+}
+
+/* Theme performance warning */
+.vc-card-warning {
+    background-color: #292a27 !important;
+    border-color: #665b3b !important;
+}
+/* Normandy SR2 — reply preview */
+.repliedMessage_2i8Bfm {
+    background-color: #14202c !important;
+    border-radius: 4px;
+}
+
+.repliedTextPreview_2i8Bfm {
+    background-color: transparent !important;
+}
+
+.repliedMessageClickableSpine_2i8Bfm {
+    border-color: #55c8e8 !important;
+}
+/* Normandy SR2 — mentioned reply message */
+.mentioned_SY_P2T {
+    background-color: #14202c !important;
+}
